@@ -1,5 +1,7 @@
 #include<iostream>
 using namespace std;
+const int N=1000;
+int array[1000];
 static int sum=0;
 int add(int n,int* a){
     if(n>2){
@@ -34,17 +36,14 @@ int add(int n,int* a){
         return sum;
     }
 }
-int main(){
-    int n;
-    cout<<"输入数的个数"<<endl;
-    cin>>n;
-    int *array=new int[n];
-    cout<<"输入所有数"<<endl;
+void Init(int n){
     for(int i=0;i<n;i++){
-        cin>>array[i];
+        array[i]=i;
     }
-    add(n,array);
+}
+int main(){
+    Init(N);
+    add(N,array);
     cout<<sum<<endl;
-    delete[] array;
     return 0;
 }
