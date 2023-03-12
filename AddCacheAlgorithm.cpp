@@ -17,7 +17,7 @@ int add(int n,int* a){
         }
         else{
             int count=0;
-            for(int i=0;i<n;i=i+2){
+            for(int i=0;i<n-2;i=i+2){
                 int sum1=0,sum2=0;
                 sum1=sum1+a[i];
                 sum2=sum2+a[i+1];
@@ -25,7 +25,7 @@ int add(int n,int* a){
                 a[count]=sum1+sum2;
                 count++;
             }
-            a[count]=a[n];
+            a[count]=a[n-1];
             return add(n/2+1,a);
         }
     }
@@ -36,10 +36,10 @@ int add(int n,int* a){
 }
 int main(){
     int n;
-    cout<<"输入数的个数"<<endl;
+    cout<<"杈撳叆鏁扮殑涓暟"<<endl;
     cin>>n;
     int *array=new int[n];
-    cout<<"输入所有数"<<endl;
+    cout<<"杈撳叆鎵�鏈夋暟"<<endl;
     for(int i=0;i<n;i++){
         cin>>array[i];
     }
