@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
-const int N=1000;
-int array[1000];
+const int N=10240;
+int array[10240];
 static int sum=0;
 int add(int n,int* a){
     if(n>2){
@@ -42,8 +42,12 @@ void Init(int n){
     }
 }
 int main(){
-    Init(N);
-    add(N,array);
+    for(int i=0;i<N;i++){
+        sum=0;
+        Init(N);
+        add(N,array);
+    }
     cout<<sum<<endl;
     return 0;
 }
+
