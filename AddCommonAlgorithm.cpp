@@ -1,19 +1,23 @@
 #include<iostream>
 using namespace std;
-int main(){
-    int n;
-    cout<<"输入数的个数"<<endl;
-    cin>>n;
-    int *array=new int[n];
-    cout<<"输入所有数"<<endl;
+const int N=10240;
+int array[10240];
+void Init(int n){
     for(int i=0;i<n;i++){
-        cin>>array[i];
+        array[i]=i;
     }
+}
+int main(){
     int sum=0;
-    for(int i=0;i<n;i++){
-        sum=sum+array[i];
+    for(int j=0;j<N;j++){
+        Init(N);
+        sum=0;
+        for(int i=0;i<N;i++){
+            sum=sum+array[i];
+        }
+
     }
     cout<<sum<<endl;
-    delete[] array;
     return 0;
 }
+
