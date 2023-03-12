@@ -1,44 +1,30 @@
 #include <iostream>
+const int N=10240;
+int array[N][N];
+int mul[N];
+void Init(){
+    for(int i=0;i<N;i++){
+        for(int j=0;j<N;j++){
+            array[i][j]=i+j;
+        }
+        mul[i]=i;
+    }
+}
 using namespace std;
 int main()
 {
-    int rows;
-    int cols;
-    cout<<"输入矩阵行数列数"<<endl;
-    cin>>rows>>cols;
-    int **array;
-    array=new int* [rows];
-    for(int i=0;i<rows;i++){
-        array[i]=new int[cols];
-    }
-    cout<<"请输入矩阵:"<<endl;
-    for(int i=0;i<rows;i++){
-        for(int j=0;j<cols;j++){
-            cin>>array[i][j];
-        }
-    }
-    int* mul=new int[cols];
-    int* result=new int[rows];
-    cout<<"请输入向量"<<endl;
-    for(int i=0;i<cols;i++){
-        cin>>mul[i];
-    }
-    for(int i=0;i<rows;i++){
+    Init();
+    int* result=new int[N];
+    for(int i=0;i<N;i++){
         result[i]=0;
     }
-
-    for(int i=0;i<cols;i++){//逐列访问
-        for(int j=0;j<rows;j++){
+    for(int i=0;i<N;i++){//閫愬垪璁块棶
+        for(int j=0;j<N;j++){
             result[j]+=array[i][j]*mul[j];
         }
     }
-    cout<<"内积所得矩阵为:"<<endl;
-    for(int i=0;i<rows;i++){
+    /*for(int i=0;i<N;i++){
         cout<<result[i]<<endl;
-    }
-    for(int i=0;i<rows;i++){
-        delete[] array[i];
-    }
-    delete[] array;
+    }*/
     return 0;
 }
